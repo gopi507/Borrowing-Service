@@ -41,7 +41,6 @@ public class BorrowService {
                 update, options().returnNew(true).upsert(true),
                 DatabaseSequence.class);
         return (int) (!Objects.isNull(counter) ? counter.getSeq() : 1);
-
     }
     public Borrowing createBorrowing(int userId, int bookId) {
         Users user = restTemplate.getForObject("http://localhost:8082/getUserById/" + userId, Users.class);
